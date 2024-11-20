@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: backend
+  datasource:
+    password: ciB55-net
+    url: jdbc:mysql://localhost:3306/Spring_Harvest_Db
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: false
+#        to enable and optimize batch processing (next 3 settings)
+        jdbc:
+          batch_size: 25
+        order_inserts: true
+        order_updates: true
+
+    show-sql: true
+    defer-datasource-initialization: true
+    generate-ddl: true
+  sql:
+     init:
+      mode: never
+
+#  security.oauth2:
+#    resourceserver:
+#      jwt:
+#        jwk-set-uri: http://localhost:8080/auth/realms/master/protocol/openid-connect/certs
+#
+#
+#keycloak:
+#  realm: master
+#  auth-server-url: http://localhost:8080
+#  resource: 8181
+#  credentials.secret: OI4VL6uvBNoVQijsXrUrwhuh7C4mmdnC
+#  bearer-only: true
+
+# do with .env
+
+
+
+
+server:
+  port: 8181
+
