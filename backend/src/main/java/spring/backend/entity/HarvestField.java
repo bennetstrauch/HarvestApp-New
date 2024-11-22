@@ -3,6 +3,8 @@ package spring.backend.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 public class HarvestField {
@@ -15,4 +17,7 @@ public class HarvestField {
 
     @Column(unique = true)
     private String name;
+
+    @ManyToMany ( fetch = FetchType.LAZY )
+    private List<HarvestEntry> harvestEntries;
 }

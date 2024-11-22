@@ -1,7 +1,7 @@
-package spring.backend.service;
+package spring.backend.service.interfaces;
 
 import spring.backend.entity.Crop;
-import spring.backend.entity.dto.AddCropsDTO;
+import spring.backend.entity.dto.input.AddCropsDTO;
 import spring.backend.entity.dto.CropDTO;
 
 import java.util.List;
@@ -26,11 +26,7 @@ public interface CropService {
      */
     Optional<Crop> findById(Integer cropId);
 
-    /**
-     * Retrieves all crops.
-     *
-     * @return a list of all crops
-     */
+
     List<CropDTO> findAllByUserId(int userId);
 
     /**

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import spring.backend.entity.User;
 import spring.backend.entity.dto.UserDTO;
 import spring.backend.repository.UserRepo;
+import spring.backend.service.interfaces.UserService;
 
 
 @Service

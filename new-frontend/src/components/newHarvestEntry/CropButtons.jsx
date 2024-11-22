@@ -8,27 +8,25 @@ import { Path_NewEntry } from "../../routes/AppRouter";
 
 function CropButtons() {
   const navigate = useNavigate();
-  const crops = useContext(CropsFieldsContext);
+  const {crops} = useContext(CropsFieldsContext);
 
 
 
   //#bessere Namen für Handle click function
   const handleClick = (crop) => {
-    console.log("selectedCrop:", crop.name);
+    console.log("harvestedCrop:", crop.name);
 
     // naviagte to path and pass selected crop as state
     navigate(Path_NewEntry + "/" + crop.name,
-      { state: { selectedCrop: crop } }
+      { state: { harvestedCrop: crop } }
     );
   };
 
 
   return (
     <div>
-      <p> Please select crop: </p>
-
       {mapToHTML(crops, (crop) => (
-        <button onClick={() => handleClick(crop)}> {crop.name} </button>
+        <button key={crop.id} onClick={() => handleClick(crop)}> {crop.name} </button>
       ))}
     </div>
   );

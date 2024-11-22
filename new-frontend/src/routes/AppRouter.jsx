@@ -10,6 +10,7 @@ import Login from "../authentification/Login";
 import Register from "../authentification/Register";
 import { CropsFieldsProvider } from '../globalStates/CropsFields';
 import FinalizeEntry from '../components/newHarvestEntry/FinalizeEntry';
+import HarvestLog from '../pages/HarvestLog';
 
 
 export const Path_HarvestLog = "/harvest-log";
@@ -20,8 +21,8 @@ export const Path_NewEntry = "/new-entry";
 function AppRouter() {
   return (
 
-      <Routes>
-        {/* Public Routes */}
+    <Routes>
+      {/* Public Routes */}
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
 
@@ -31,17 +32,18 @@ function AppRouter() {
 
           <Route path={Path_NewEntry} element={<MainPage />} />
           <Route path="/" element={<MainPage />} />
-          <Route path={Path_NewEntry +"/:cropName"} element={<FinalizeEntry />} />
 
-          {/* <Route path={Path_HarvestLog} element={<HarvestLog />} />
-          <Route path={Path_ModifyCrops} element={<ModifyCrops />} /> */}
+          <Route path={Path_NewEntry + "/:cropName"} element={<FinalizeEntry />} />
+
+          <Route path={Path_HarvestLog} element={<HarvestLog />} />
+          {/* <Route path={Path_ModifyCrops} element={<ModifyCrops />} /> */}
         </Route>
       </Route>
 
       {/* # catch page not found */}
       {/* <Route path="*" element={<Missing />} /> */}
 
-      </Routes>
+    </Routes>
 
   );
 }

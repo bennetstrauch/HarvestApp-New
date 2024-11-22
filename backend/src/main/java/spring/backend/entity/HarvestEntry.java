@@ -1,11 +1,12 @@
 package spring.backend.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.List;
 
-
+@Data
 @Entity
 public class HarvestEntry {
 
@@ -20,8 +21,8 @@ public class HarvestEntry {
 
     private double quantity;
 
-    @ManyToMany
-    private List<HarvestField> harvestFields;
+    @ManyToMany ( fetch = FetchType.LAZY )
+    private List<HarvestField> harvestedFields;
 
 
 

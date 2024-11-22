@@ -5,8 +5,7 @@ import CropButtons from './CropButtons';
 
 
 const SelectCrop = () => {
-  const navigateTo = useNavigate();
-
+  console.log("RENDER SelectCrop");
 
   // const modifyCropsButton = (
   //   <button
@@ -22,6 +21,7 @@ const SelectCrop = () => {
 
       <br />
 
+      <p> Please select crop: </p>
       <CropButtons />
 
       <br />

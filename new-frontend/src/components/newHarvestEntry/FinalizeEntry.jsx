@@ -1,61 +1,93 @@
-import React, { useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import QuantityInput from './QuantityInput';
+import SelectFields from '../harvestFields/SelectFields';
+import { getCurrentDate } from '../../service/utils';
+import { CropsFieldsContext } from '../../globalStates/CropsFields';
+import { post } from '../../service/fetchService';
+import GoBackButton from '../universal/GoBackButton';
 
 const FinalizeEntry = () => {
-    
-    let selectedCrop = useLocation().state.selectedCrop;
-    console.log("selectedCrop", selectedCrop);
+    const navigate = useNavigate();
+    const harvestedCrop = useLocation().state.harvestedCrop;
+    console.log("RENDER FinalizeEntry,   harvestedCrop", harvestedCrop);
 
-    // in redux?
-    const navigateTo = useNavigate();
-   
-    const harvestedAmount = useRef(0.0);
-    const harvestedFields = useRef([])
+    const harvestDate = useRef(getCurrentDate());
+    const harvestedQuantity = useRef(0.0);
+    // # leave in context or define here?
+    const { harvestedFields } = useContext(CropsFieldsContext);
 
-    function prepareEntry(){
+    // # put in context if needed elsewhere
+    const goBack = () => {
+        navigate(-1);
+    };
+
+    // ## global variables for backend and frontend? harvestDate, cropId, etc...
+    function prepareEntry() {
         let newEntry = {
-          harvestDate: harvestDate2.current.value,
-          cropName: selectedCrop,
-          harvestedAmount: harvestedAmount.current.value,
-          harvestedFields: harvestedFields.current.value
+            harvestDate: harvestDate.current,
+            cropId: harvestedCrop.id,
+            quantity: harvestedQuantity.current.value,
+            harvestedFieldIds: harvestedFields.current
         }
-      }
+
+        console.log("newEntry", newEntry);
+
+        return newEntry;
+    }
 
 
-    
-      // async function postHarvestEntryAndSetLatestEntry() {
-      //   const addedEntryId = await postHarvestEntry(harvestEntryObject);
-      //   console.log("addedEntryId", addedEntryId);
-    
-      //   const addedEntry = await getHarvestEntry(addedEntryId);
-      //   setLatestEntry(addedEntry);
-      //   console.log("added Entry", addedEntry);
-      // }
 
-      
-      // const handleEntrySubmission = () => {
-      //   postHarvestEntryAndSetLatestEntry();
-      //   goBack();
-      // };
+    async function postHarvestEntry(newEntry) {
 
-      // const submitEntry_Button = (
-      //   <button onClick={handleEntrySubmission}>Submit</button>
-      // );
-      // //#
-      // const modifyFieldsButton = (
-      //   <button onClick={navigateTo(Path_ModifyCrops)}>Modify Fields</button>
-      // );
+      const addedEntryId = await post("harvest-entries", newEntry);
+      console.log("addedEntryId", addedEntryId);
+
+      return addedEntryId;
+    }
+
+    // async function getLatestEntry(id) {
+    //   const addedEntry = await getHarvestEntry(id);
+    //   setLatestEntry(addedEntry);
+    //   console.log("added Entry", addedEntry);
+    // }
+
+
+    const handleEntrySubmission = () => {
+        const newEntry = prepareEntry();
+        const addedEntryId = postHarvestEntry(newEntry);
+        // getLatestEntry(addedEntryId);
+
+      goBack();
+    };
+
+    const submitEntry_Button = (
+      <button onClick={handleEntrySubmission}>Submit</button>
+    );
+    // //#
+    // const modifyFieldsButton = (
+    //   <button onClick={navigateTo(Path_ModifyCrops)}>Modify Fields</button>
+    // );
+
+   
 
     return (
         <div>finalizeEntry
+            <br />
+            <GoBackButton />
+            <br /> <br />
 
-            {/* <EnterAmountAndField
-                {...{harvestedAmount2: harvestedAmount, harvestedFields, selectedCrop}}
+            <QuantityInput
+                {...{harvestedQuantity, harvestedCrop }}
+            />
+
+            <SelectFields
+                {...{harvestedFields, harvestedCrop }}
             />
 
             <br />
             {submitEntry_Button}
-            {modifyFieldsButton} */}
+            {/* {modifyFieldsButton} */}
 
         </div>
     )

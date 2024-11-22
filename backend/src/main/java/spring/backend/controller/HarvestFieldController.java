@@ -1,9 +1,9 @@
 package spring.backend.controller;
 
 import org.springframework.web.bind.annotation.*;
-import spring.backend.entity.dto.AddHarvestFieldsDTO;
+import spring.backend.entity.dto.input.AddHarvestFieldsDTO;
 import spring.backend.entity.dto.HarvestFieldDTO;
-import spring.backend.service.HarvestFieldService;
+import spring.backend.service.interfaces.HarvestFieldService;
 
 import java.util.List;
 

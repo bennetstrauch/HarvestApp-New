@@ -2,9 +2,9 @@ package spring.backend.controller;
 
 import org.springframework.web.bind.annotation.*;
 import spring.backend.entity.Crop;
-import spring.backend.entity.dto.AddCropsDTO;
+import spring.backend.entity.dto.input.AddCropsDTO;
 import spring.backend.entity.dto.CropDTO;
-import spring.backend.service.CropService;
+import spring.backend.service.interfaces.CropService;
 
 import java.util.List;
 
@@ -33,6 +33,15 @@ public class CropController {
         cropService.saveAll( userId, toAdd );
     }
 
+    //# impl
+//    @DeleteMapping
+//    public void delete(@PathVariable Integer userId, @RequestBody Integer[] cropIds) {
+//        // Log or use userId as needed
+//        System.out.println("User ID: " + userId);
+//        cropService.
+//    }
+
+
     @GetMapping("/{cropId}")
     public Crop getById(@PathVariable Integer userId, @PathVariable Integer cropId) {
         // Log or use userId as needed
@@ -42,17 +51,5 @@ public class CropController {
 
 
 
-    @PutMapping("/{cropId}")
-    public Crop update(@PathVariable Integer userId, @PathVariable Integer cropId, @RequestBody Crop crop) {
-        // Log or use userId as needed
-        System.out.println("User ID: " + userId);
-        return cropService.update(cropId, crop);
-    }
 
-    @DeleteMapping("/{cropId}")
-    public void delete(@PathVariable Integer userId, @PathVariable Integer cropId) {
-        // Log or use userId as needed
-        System.out.println("User ID: " + userId);
-        cropService.deleteById(cropId);
-    }
 }

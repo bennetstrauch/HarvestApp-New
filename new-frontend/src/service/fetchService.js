@@ -36,7 +36,27 @@ const userId = getUserId();
     }
     
   }
+
+  export const post = async (urlAddition, data) => {
+    try {
+        const response = await API.post(userId + "/" + urlAddition, data);
+        console.log("Response from post", response);
+        return response.data;
+    } catch (error) {
+        console.log(error.message);
+        return null;
+    }
+  }
   
+  // ## modify to add crops in filter.
+  export async function getEntriesFilteredBy(dateRange) {
+    const { startDate, endDate } = dateRange;
+
+    const urlAddition = `harvest-entries/filter?startDate=${startDate}&endDate=${endDate}`;
+    const response = await get(urlAddition);
+
+    return response;
+  }
   
   
   

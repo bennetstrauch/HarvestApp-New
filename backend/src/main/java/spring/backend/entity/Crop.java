@@ -18,6 +18,7 @@
         @Column(unique = true)
         private String name;
 
+        // ## if i load lazy it throws error, fix!
         @ManyToOne @JoinColumn(name = "measure_unit_name")
         private MeasureUnit measureUnit;
 

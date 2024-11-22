@@ -1,4 +1,4 @@
-package spring.backend.entity.dto;
+package spring.backend.entity.dto.input;
 
 import lombok.Data;
 

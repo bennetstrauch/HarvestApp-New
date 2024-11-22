@@ -2,7 +2,7 @@ package spring.backend.controller;
 
 import org.springframework.web.bind.annotation.*;
 import spring.backend.entity.dto.UserDTO;
-import spring.backend.service.UserService;
+import spring.backend.service.interfaces.UserService;
 
 @CrossOrigin(origins = "*")
 @RestController

@@ -1,14 +1,13 @@
 package spring.backend.service;
 
 import org.springframework.stereotype.Service;
-import spring.backend.entity.Crop;
 import spring.backend.entity.HarvestField;
 import spring.backend.entity.User;
-import spring.backend.entity.dto.AddCropsDTO;
-import spring.backend.entity.dto.AddHarvestFieldsDTO;
+import spring.backend.entity.dto.input.AddHarvestFieldsDTO;
 import spring.backend.entity.dto.HarvestFieldDTO;
 import spring.backend.repository.HarvestFieldRepo;
 import spring.backend.repository.UserRepo;
+import spring.backend.service.interfaces.HarvestFieldService;
 import spring.backend.util.ListMapper;
 
 import java.util.ArrayList;

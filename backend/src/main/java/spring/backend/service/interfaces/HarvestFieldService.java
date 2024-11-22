@@ -1,7 +1,7 @@
-package spring.backend.service;
+package spring.backend.service.interfaces;
 
 import spring.backend.entity.HarvestField;
-import spring.backend.entity.dto.AddHarvestFieldsDTO;
+import spring.backend.entity.dto.input.AddHarvestFieldsDTO;
 import spring.backend.entity.dto.HarvestFieldDTO;
 
 import java.util.List;

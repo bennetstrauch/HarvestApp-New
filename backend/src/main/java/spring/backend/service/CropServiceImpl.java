@@ -4,11 +4,12 @@ import org.springframework.stereotype.Service;
 import spring.backend.entity.Crop;
 import spring.backend.entity.MeasureUnit;
 import spring.backend.entity.User;
-import spring.backend.entity.dto.AddCropsDTO;
+import spring.backend.entity.dto.input.AddCropsDTO;
 import spring.backend.entity.dto.CropDTO;
 import spring.backend.repository.CropRepo;
 import spring.backend.repository.MeasureUnitRepo;
 import spring.backend.repository.UserRepo;
+import spring.backend.service.interfaces.CropService;
 import spring.backend.util.ListMapper;
 
 import java.util.ArrayList;

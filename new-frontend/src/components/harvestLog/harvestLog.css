@@ -1,0 +1,46 @@
+/* might need it again, so put it in navbar.css file */
+
+.navbar button {
+  background: none; /* Remove default button styling */
+  border-radius: 0px;
+  border: none;
+  font-size: 18px; /* Size of the text */
+  font-weight: 400;
+  color: gray; /* Default color */
+  cursor: pointer;
+  padding: 10;
+}
+
+.navbar button.active {
+  font-weight: bold; /* Bold text for active item */
+  color: rgb(188, 191, 191); /* Black color for active item */
+  border-bottom: 2px solid rgb(188, 191, 191); /* Black underline for active item */
+}
+
+.navbar button:focus {
+  outline: none; /* Remove focus outline */
+  font-weight: bold; /* Bold text for active item */
+  color: rgb(188, 191, 191); /* Black color for active item */
+  border-bottom: 2px solid rgb(188, 191, 191);
+}
+
+.navbar button:hover {
+  color: rgb(255, 155, 73); /* Change color when hovering over items */
+}
+
+
+.notVisible {
+  display: none;
+}
+
+
+.timeframe-navigation {
+  display: flex;
+  justify-content: center; /* Center the buttons */
+  
+}
+
+
+tr.highlight td{
+    font-weight: bold;
+  }

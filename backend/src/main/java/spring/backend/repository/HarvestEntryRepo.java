@@ -7,16 +7,12 @@ import spring.backend.entity.HarvestEntry;
 
 import java.util.List;
 
-public interface CropRepo extends CrudRepository<Crop,Integer> {
-
-    List<Crop> findAllByUserId(int userId);
-
-    void deleteAllByUserId(int userId);
+public interface HarvestEntryRepo extends CrudRepository<HarvestEntry,Integer> {
 
 
 
     @Query("SELECT c.harvestEntries from Crop c WHERE c.user.id = :userId")
-    List<HarvestEntry> findAllHarvestEntriesByUserId(int userId);
+    List<HarvestEntry> findAllByUserId(int userId);
 
 
 

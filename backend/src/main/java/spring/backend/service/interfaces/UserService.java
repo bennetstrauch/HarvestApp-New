@@ -1,4 +1,4 @@
-package spring.backend.service;
+package spring.backend.service.interfaces;
 
 import spring.backend.entity.dto.UserDTO;
 
