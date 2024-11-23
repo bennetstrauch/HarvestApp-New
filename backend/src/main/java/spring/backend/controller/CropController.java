@@ -8,7 +8,7 @@ import spring.backend.service.interfaces.CropService;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin( allowedHeaders = "*")
 @RestController
 @RequestMapping("api/v1/users/{userId}/crops")
 public class CropController {

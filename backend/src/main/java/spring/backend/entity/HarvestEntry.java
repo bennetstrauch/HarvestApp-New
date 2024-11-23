@@ -22,7 +22,7 @@ public class HarvestEntry {
     private double quantity;
 
     @ManyToMany ( fetch = FetchType.LAZY )
-    private List<HarvestField> harvestedFields;
+    private List<HarvestField> harvestFields;
 
 
 

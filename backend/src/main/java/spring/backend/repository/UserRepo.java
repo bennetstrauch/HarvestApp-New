@@ -4,4 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import spring.backend.entity.User;
 
 public interface UserRepo extends CrudRepository<User,Integer> {
+    public User findByName(String username);
 }

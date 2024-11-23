@@ -31,7 +31,7 @@ public class HarvestEntryListMapper {
             entryDTO.setMeasureUnitName(crop.getMeasureUnit().getName());
             entryDTO.setQuantity(entry.getQuantity());
 
-            String[] harvestedFieldNames = entry.getHarvestedFields().stream().map((field) -> field.getName()).toArray(String[]::new);
+            String[] harvestedFieldNames = entry.getHarvestFields().stream().map((field) -> field.getName()).toArray(String[]::new);
             entryDTO.setHarvestedFieldNames(harvestedFieldNames);
 
 

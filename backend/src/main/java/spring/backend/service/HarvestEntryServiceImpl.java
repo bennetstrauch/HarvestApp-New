@@ -68,7 +68,7 @@ public class HarvestEntryServiceImpl implements HarvestEntryService {
         entry.setHarvestDate(entryDTO.getHarvestDate());
         entry.setCrop(crop);
         entry.setQuantity(entryDTO.getQuantity());
-        entry.setHarvestedFields(fields);
+        entry.setHarvestFields(fields);
 
         HarvestEntry savedEntry = harvestEntryRepo.save(entry);
 

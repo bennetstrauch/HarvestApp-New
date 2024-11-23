@@ -7,7 +7,7 @@ import spring.backend.service.interfaces.HarvestFieldService;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin( allowedHeaders = "*")
 @RestController
 @RequestMapping("api/v1/users/{userId}/harvest-fields")
 public class HarvestFieldController {

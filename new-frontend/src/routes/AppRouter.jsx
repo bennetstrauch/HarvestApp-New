@@ -11,6 +11,7 @@ import Register from "../authentification/Register";
 import { CropsFieldsProvider } from '../globalStates/CropsFields';
 import FinalizeEntry from '../components/newHarvestEntry/FinalizeEntry';
 import HarvestLog from '../pages/HarvestLog';
+import Authentication from '../authentification/Authentication';
 
 
 export const Path_HarvestLog = "/harvest-log";
@@ -23,8 +24,8 @@ function AppRouter() {
 
     <Routes>
       {/* Public Routes */}
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
+      <Route path="login" element={<Authentication />} />
+      <Route path="register" element={<Authentication />} />
 
       {/* Protected Routes */}
       <Route element={<CheckAuth />}>

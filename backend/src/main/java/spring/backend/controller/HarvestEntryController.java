@@ -8,7 +8,7 @@ import spring.backend.service.interfaces.HarvestEntryService;
 import java.time.LocalDate;
 import java.util.List;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin( allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/v1/users/{userId}/harvest-entries")
 public class HarvestEntryController {
